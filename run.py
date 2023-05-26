@@ -282,7 +282,7 @@ while True:
 
                 #     if qnNumber+1 == key:
                 #         for i in set1 & set2:
-                #             file_html.write("<p>{}.* {}".format(Question[optionCounter],i))
+                #             file_html.write("<p>{}. {}*".format(Question[optionCounter],i))
                 #             optionCounter += 1
                 #         for wat in set2 - set1:
                 #             file_html.write("<p>{}. {}".format(Question[optionCounter],wat))
