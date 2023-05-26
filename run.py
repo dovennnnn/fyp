@@ -276,17 +276,34 @@ while True:
                 for key, value in optionsDict.items():
                     for i in range(len(value)):
                         value[i] = value[i].replace('</p>', '')
+                # for key in ansDict.keys():
+                #     set1 = set(ansDict[key])
+                #     set2 = set(optionsDict[key])
+
+                #     if qnNumber+1 == key:
+                #         for i in set1 & set2:
+                #             file_html.write("<p>{}.* {}".format(Question[optionCounter],i))
+                #             optionCounter += 1
+                #         for wat in set2 - set1:
+                #             file_html.write("<p>{}. {}".format(Question[optionCounter],wat))
+                #             optionCounter += 1
                 for key in ansDict.keys():
                     set1 = set(ansDict[key])
-                    set2 = set(optionsDict[key])
+                    set2 = list(optionsDict[key])  # Convert set2 to a list
 
-                    if qnNumber+1 == key:
-                        for i in set1 & set2:
-                            file_html.write("<p>{}.* {}".format(Question[optionCounter],i))
-                            optionCounter += 1
-                        for wat in set2 - set1:
-                            file_html.write("<p>{}. {}".format(Question[optionCounter],wat))
-                            optionCounter += 1
+                    if qnNumber + 1 == key:
+                        modified_set2 = []
+                        for wat in set2:
+                            if wat in set1:
+                                modified_wat = "{}.* {}".format(Question[optionCounter], wat)
+                                optionCounter += 1
+                            else:
+                                modified_wat = "{}. {}".format(Question[optionCounter], wat)
+                                optionCounter += 1
+                            modified_set2.append(modified_wat)
+
+                        for wat in modified_set2:
+                            file_html.write("<p>{}".format(wat))
                         # for key in set2:
                             # if set2-set1[key] == key:
                             #     print(key)
