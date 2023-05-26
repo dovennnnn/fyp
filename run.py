@@ -176,7 +176,7 @@ while True:
                                                 AnsToBePrinted=ansIdList[correct]
                                                 if AnsToBePrinted.startswith("<p>"):
                                                     formattedAnsToBePrinted=AnsToBePrinted[3:-4]
-                                                    file_html.write("<p>[ {} Marks ]</p>".format(int(float(qnmark_str))))
+                                                    # file_html.write("<p>[ {} Marks ]</p>".format(int(float(qnmark_str))))
                                                     # file_html.write("<br><strong>Answer : {}  </strong><br>".format(formattedAnsToBePrinted))
                                                     ansDict[qnNumber+1].append(formattedAnsToBePrinted)
                                                 else: 
